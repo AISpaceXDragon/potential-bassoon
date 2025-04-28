@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  object_detector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: missing-object-detector:latest
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    stdin_open: true
+    tty: true
+    command: python3 detect_missing_new_objects.py
