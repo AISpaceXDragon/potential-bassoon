@@ -1,19 +1,22 @@
 version: "3.8"
 
 services:
-  object_detector:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: missing-object-detector:latest
-    runtime: nvidia
+  tracker:
+    build: .
+    container_name: object_tracker
+    volumes:
+      - ./assets:/app/assets
+      - ./output:/app/output
+    runtime: nvidia # Optional: Only needed if using GPU
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
-    stdin_open: true
-    tty: true
-    command: python3 detect_missing_new_objects.py
+    command: >
+      python detect_and_save_output_video.py 
+        --video input_videos/your_video.mp4 
+        --threshold 30 
+        --device auto 
+        --model yolov8n.pt 
+        --resolution 640 
+        --save_frames False 
+        --half_precision True 
+        --output_path outputs
