@@ -65,15 +65,6 @@ By default, the script:
 
 ---
 
-## 📸 Demo
-
-| Event | Visualization |
-|:---|:---|
-| Missing Object | ![Missing Object Detection picture](outputs/missing_demo.png) |
-| New Object | ![New Object Detection picture](outputs/new_object_demo.png) |
-
----
-
 ## ⚙️ Configuration
 
 You can adjust settings in `detect_missing_new_objects.py`:
