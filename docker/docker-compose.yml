@@ -12,11 +12,11 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
     command: >
       python detect_and_save_output_video.py 
-        --video input_videos/your_video.mp4 
+        --video assets/Test_Video_part1.mp4 
         --threshold 30 
         --device auto 
         --model yolov8n.pt 
         --resolution 640 
         --save_frames False 
         --half_precision True 
-        --output_path outputs
+        --output_path output/
