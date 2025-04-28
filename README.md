@@ -49,6 +49,12 @@ By default, the script:
 - Prints detailed logs in the console.
 - Shows average FPS at the end.
 
+If using docker-compose.yml:(ensure that you are in the docker folder after cloning this repo. Then run the following command).
+
+```bash
+# Build and run
+docker-compose up --build
+```
 ---
 
 ## 🧠 Methodology
